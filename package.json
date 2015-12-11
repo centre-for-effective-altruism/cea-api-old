@@ -2,6 +2,9 @@
   "name": "cea-api",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "4.2.2"
+  },
   "scripts": {
     "start": "npm run build && supervisor ./bin/www",
     "build": "browserify client/src/javascripts/vendor.js -o client/public/javascripts/vendor.js"

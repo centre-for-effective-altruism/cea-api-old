@@ -80,7 +80,6 @@ router.put('/', function(req, res, next) {
 	query.push(set.join(', '))
 	query.push("WHERE slug = '" + slug + "'")
 	query = query.join(' ')
-	console.log(query,data)
 
 	db.tx(function(t){
 		var update = this.none(query,data)
@@ -108,7 +107,6 @@ router.delete('/:id', function(req, res, next) {
 		return this.batch([del,select])
 	})
 	.then(function(data){
-		console.log(data)
     	return res.json(data[1])
     })
     .catch(function(error){

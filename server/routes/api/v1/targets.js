@@ -79,14 +79,11 @@ router.put('/', function(req, res, next) {
 		query.push(set.join(', '))
 		query.push("WHERE id = '" + id + "'")
 		query = query.join(' ')
-		console.log(query,data)
 	} else {
 		var data = {
 			amount: req.body.amount,
 			organisation: req.body.organisation
 		}
-		console.log('Req',req.body)
-		console.log('Data',data)
 	}
 
 	db.tx(function(t){
@@ -114,7 +111,6 @@ router.put('/', function(req, res, next) {
 router.delete('/:id', function(req, res, next) {
 	
 	var id = req.params.id
-	console.log(id)
 
 	db.tx(function(t){
 		var del = this.none('DELETE FROM targets WHERE id=($1)',[id])

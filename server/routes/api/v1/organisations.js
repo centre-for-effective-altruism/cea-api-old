@@ -58,7 +58,6 @@ router.get('/:slug', function(req, res, next) {
 
 // UPDATE
 router.put('/', function(req, res, next) {
-	console.log(req.body)
 
 	var slug = req.body.slug;
 	var query = ['UPDATE organisations'];
@@ -81,7 +80,6 @@ router.put('/', function(req, res, next) {
 	query = query.join(' ')
 
 	db.tx(function(t){
-		console.log(data)
 		var update = this.none(query,data)
 		var select = this.any(defaultSelect)
 		return this.batch([update,select])

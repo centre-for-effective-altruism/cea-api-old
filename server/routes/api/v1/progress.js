@@ -17,7 +17,6 @@ router.get('/',function(req, res, next) {
 
 	db.any(sql.join(' '))
     .then(function(data){
-    	console.log('Data',data)
     	res.json(data)
     })
     .catch(function(error){
@@ -39,7 +38,6 @@ router.get('/:slug',function(req, res, next) {
 
 	db.any(sql.join(' '))
     .then(function(data){
-    	console.log('Data',data)
     	res.json(data)
     })
     .catch(function(error){

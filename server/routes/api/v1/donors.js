@@ -73,7 +73,6 @@ router.put('/', function(req, res, next) {
 	query.push(set.join(', '))
 	query.push("WHERE id = '" + id + "'")
 	query = query.join(' ')
-	console.log(query,data)
 
 	db.tx(function(t){
 		var update = this.none(query,data)
