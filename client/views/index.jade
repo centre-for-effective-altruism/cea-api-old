@@ -14,7 +14,9 @@ block content
                     i.glyphicon.glyphicon-calendar
                     |  {{donation.timestamp|amDateFormat:'DD MMM YYYY'}} &mdash;
                     i.glyphicon.glyphicon-user
-                    |  {{donation.donorname}} &mdash; 
+                    |  {{donation.donorname}} 
+                    span(ng-show="donation.anonymous") (anonymous)
+                    | &mdash; 
                     i.glyphicon.glyphicon-briefcase
                     |  {{donation.organisationname}} &mdash;
                     | £{{donation.amount}} 
@@ -41,6 +43,9 @@ block content
                             i.glyphicon.glyphicon-calendar
                             | 
                             i.caret
+                .form-group
+                    label(for="amount") Anonymous donation?
+                        input(type="checkbox" class="form-control" ng-model="NewDonation.anonymous")
 
                         //- input.form-control(name="name" ng-model="NewDonation.timestamp" ng-click="showDatepicker = !showDatepicker" type="text")
                     

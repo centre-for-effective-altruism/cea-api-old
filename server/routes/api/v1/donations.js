@@ -11,16 +11,17 @@ var defaultSelect = 'SELECT donations.id,organisations.name as organisationname,
 router.post('/', function(req, res, next) {
 	var results = [];
 
+
 	var data = {
 		organisation: req.body.organisation,
 		amount: req.body.amount,
 		donor: req.body.donor,
-		timestamp: req.body.timestamp
+		timestamp: req.body.timestamp,
+		anonymous: req.body.anonymous || false
 		
 	}
-
     db.tx(function(t){
-	    var insert = this.none("INSERT INTO donations(organisation, amount, donor, timestamp) values($1,$2,$3,$4);",[data.organisation, data.amount, data.donor, data.timestamp])
+	    var insert = this.none("INSERT INTO donations(organisation, amount, donor, timestamp, anonymous) values($1,$2,$3,$4,$5);",[data.organisation, data.amount, data.donor, data.timestamp,data.anonymous])
 	    var select = this.any(defaultSelect)
 	    return this.batch([insert,select])
     })

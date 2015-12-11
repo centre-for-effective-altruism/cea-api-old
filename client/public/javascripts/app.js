@@ -22,7 +22,8 @@ angular.module('cea', [
             amount: $scope.NewDonation.amount,
             donor: $scope.NewDonation.donor,
             organisation: $scope.NewDonation.organisation,
-            timestamp: $scope.NewDonation.timestamp
+            timestamp: $scope.NewDonation.timestamp,
+            anonymous: $scope.NewDonation.anonymous
         }
         $http.post('/api/v1/donations/',data)
         .success(function(data) {
@@ -41,7 +42,6 @@ angular.module('cea', [
         $http.get('/api/v1/donations')
         .success(function(data) {
             $scope.donations = data;
-            console.log('Donations',data);
         })
         .error(function(error) {
             console.log('Error: ' + error);
@@ -52,7 +52,6 @@ angular.module('cea', [
         $http.delete('/api/v1/donations/'+ID)
         .success(function(data) {
             $scope.donations = data;
-            console.log(data);
         })
         .error(function(error) {
             console.log('Error: ' + error);
@@ -67,12 +66,10 @@ angular.module('cea', [
         var data = {
             name: $scope.NewDonor.name
         }
-        console.log(data)
         $http.post('/api/v1/donors/',data)
         .success(function(data) {
             $scope.donors = data;
             $scope.NewDonor = {}
-            console.log(data);
         })
         .error(function(error) {
             console.log('Error: ' + error);
@@ -84,7 +81,6 @@ angular.module('cea', [
         $http.get('/api/v1/donors')
         .success(function(data) {
             $scope.donors = data;
-            console.log('Donors',data);
         })
         .error(function(error) {
             console.log('Error: ' + error);
@@ -95,7 +91,6 @@ angular.module('cea', [
         $http.delete('/api/v1/donors/'+ID)
         .success(function(data) {
             $scope.donors = data;
-            console.log(data);
         })
         .error(function(error) {
             console.log('Error: ' + error);
@@ -111,12 +106,10 @@ angular.module('cea', [
             slug: $scope.NewOrganisation.slug,
             name: $scope.NewOrganisation.name
         }
-        console.log(data)
         $http.post('/api/v1/organisations/',data)
         .success(function(data) {
             $scope.organisations = data;
             $scope.NewOrganisation = {}
-            console.log(data);
         })
         .error(function(error) {
             console.log('Error: ' + error);
@@ -128,7 +121,6 @@ angular.module('cea', [
         $http.get('/api/v1/organisations')
         .success(function(data) {
             $scope.organisations = data;
-            console.log('Organisations',data);
         })
         .error(function(error) {
             console.log('Error: ' + error);
@@ -140,7 +132,6 @@ angular.module('cea', [
         $http.put('/api/v1/organisations/',data)
         .success(function(data) {
             $scope.organisations = data;
-            console.log(data);
         })
         .error(function(error) {
             console.log('Error: ' + error);
@@ -151,7 +142,6 @@ angular.module('cea', [
         $http.delete('/api/v1/organisations/'+slug)
         .success(function(data) {
             $scope.organisations = data;
-            console.log(data);
         })
         .error(function(error) {
             console.log('Error: ' + error);
@@ -167,12 +157,10 @@ angular.module('cea', [
             slug: $scope.NewTarget.slug,
             name: $scope.NewTarget.name
         }
-        console.log(data)
         $http.post('/api/v1/targets/',data)
         .success(function(data) {
             $scope.targets = data;
             $scope.NewTarget = {}
-            console.log(data);
         })
         .error(function(error) {
             console.log('Error: ' + error);
@@ -184,7 +172,6 @@ angular.module('cea', [
         $http.get('/api/v1/targets')
         .success(function(data) {
             $scope.targets = data;
-            console.log('Targets',data);
         })
         .error(function(error) {
             console.log('Error: ' + error);
@@ -197,7 +184,6 @@ angular.module('cea', [
         $http.put('/api/v1/targets/',data)
         .success(function(data) {
             $scope.targets = data;
-            console.log(data);
         })
         .error(function(error) {
             console.log('Error: ' + error);
@@ -208,7 +194,6 @@ angular.module('cea', [
         $http.delete('/api/v1/targets/'+slug)
         .success(function(data) {
             $scope.targets = data;
-            console.log(data);
         })
         .error(function(error) {
             console.log('Error: ' + error);
@@ -222,7 +207,6 @@ angular.module('cea', [
         $http.get('/api/v1/progress/')
         .success(function(data) {
             $scope.progress = data;
-            console.log('Progress',data);
         })
         .error(function(error) {
             console.log('Error: ' + error);
