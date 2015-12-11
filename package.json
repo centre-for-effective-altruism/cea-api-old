@@ -7,7 +7,8 @@
   },
   "scripts": {
     "start": "npm run build && supervisor ./bin/www",
-    "build": "browserify client/src/javascripts/vendor.js -o client/public/javascripts/vendor.js"
+    "build": "browserify client/src/javascripts/vendor.js -o client/public/javascripts/vendor.js",
+    "serve": "npm run build && node ./bin/www"
   },
   "dependencies": {
     "angular": "^1.4.8",
