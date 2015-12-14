@@ -5,7 +5,7 @@ if(!process.env.NODE_ENV || process.env.NODE_ENV === 'development'){
 
 var express = require('express');
 var path = require('path');
-
+var cors = require('cors')
 
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -23,8 +23,17 @@ if(app.get('env') === 'production'){
   app.use(enforce.HTTPS({ trustProtoHeader: true }))
 }
 
-// uncomment after placing your favicon in /public
 app.use(logger('dev'));
+
+
+var whitelist = ['*.centreforeffectivealtruism.org', '*.givingwhatwecan.org', 'http://localhost:4000'];
+var corsOptions = {
+  origin: function(origin, callback){
+    var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+    callback(null, originIsWhitelisted);
+  }
+};
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
