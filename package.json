@@ -20,7 +20,6 @@
     "morgan": "~1.6.1",
     "pg": "^4.4.3",
     "pg-promise": "^2.7.2",
-    "pg-query": "^0.11.0",
-    "serve-favicon": "~2.3.0"
+    "pg-query": "^0.11.0"
   }
 }
