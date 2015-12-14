@@ -2,8 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'CEA Donations' });
+router.all('/*', function(req, res, next) {
+	res.status(404);
+	res.send('Not found')
 });
 
 module.exports = router;

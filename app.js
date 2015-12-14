@@ -11,7 +11,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./server/routes/index');
-var apiv1 = require('./server/routes/api/v1/index');
+var api = require('./server/routes/api/index');
 
 var app = express();
 
@@ -27,8 +27,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client','public')));
 
+app.use('/v1', api);
 app.use('/', routes);
-app.use('/api/v1', apiv1);
 
 
 // catch 404 and forward to error handler
@@ -45,10 +45,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
+    res.send(err)
   });
 }
 
@@ -58,10 +55,7 @@ app.use(function(err, req, res, next) {
   console.log('\nError:')
   console.log(err,'\n')
   res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
+  res.send(err.message || 'Error')
 });
 
 

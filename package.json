@@ -6,9 +6,8 @@
     "node": "4.2.2"
   },
   "scripts": {
-    "start": "npm run build && supervisor ./bin/www",
-    "build": "browserify client/src/javascripts/vendor.js -o client/public/javascripts/vendor.js",
-    "serve": "npm run build && node ./bin/www"
+    "start": "supervisor ./bin/www",
+    "serve": "node ./bin/www"
   },
   "dependencies": {
     "angular": "^1.4.8",

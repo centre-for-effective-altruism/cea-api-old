@@ -1,6 +1,0 @@
-global.jQuery = require('jquery')
-require('angular')
-global.moment = require('moment')
-require('angular-ui-bootstrap')
-require('angular-moment')
-require('datetimePicker')
