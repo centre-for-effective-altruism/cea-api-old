@@ -28,7 +28,7 @@ app.use(logger('dev'));
 
 var whitelist = [
   'https://admin.centreforeffectivealtruism.org',
-  'https://admin.centreforeffectivealtruism.org',
+  'https://server.centreforeffectivealtruism.org',
   'https://www.givingwhatwecan.org',
   'http://localhost:4000'
 ];
