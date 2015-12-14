@@ -1,4 +1,4 @@
-if(!process.env.ENV || process.env.ENV === 'development'){
+if(!process.env.NODE_ENV || process.env.NODE_ENV === 'development'){
   console.log('Dev environment')
   require('dotenv').load();
 }
@@ -22,8 +22,7 @@ var app = express();
 
 if(app.get('env') === 'production'){
   var enforce = require('express-sslify');
-  app.use(enforce.HTTPS())
-  // app.use(enforce.HTTPS({ trustProtoHeader: true }))
+  app.use(enforce.HTTPS({ trustProtoHeader: true }))
 }
 
 // view engine setup
