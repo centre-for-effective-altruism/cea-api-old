@@ -15,6 +15,11 @@ var api = require('./server/routes/api/index');
 
 var app = express();
 
+
+// enforce SSL
+app.use(enforce.HTTPS())
+// app.use(enforce.HTTPS({ trustProtoHeader: true }))
+
 // view engine setup
 app.set('views', path.join(__dirname, 'client', 'views'));
 app.set('view engine', 'jade');
