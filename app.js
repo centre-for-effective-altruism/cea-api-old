@@ -26,7 +26,12 @@ if(app.get('env') === 'production'){
 app.use(logger('dev'));
 
 
-var whitelist = ['*.centreforeffectivealtruism.org', '*.givingwhatwecan.org', 'http://localhost:4000'];
+var whitelist = [
+  'https://admin.centreforeffectivealtruism.org',
+  'https://admin.centreforeffectivealtruism.org',
+  'https://www.givingwhatwecan.org',
+  'http://localhost:4000'
+];
 var corsOptions = {
   origin: function(origin, callback){
     var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
