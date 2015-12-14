@@ -5,6 +5,8 @@ if(!process.env.ENV || process.env.ENV === 'development'){
 
 var express = require('express');
 var path = require('path');
+
+
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -17,8 +19,12 @@ var app = express();
 
 
 // enforce SSL
-app.use(enforce.HTTPS())
-// app.use(enforce.HTTPS({ trustProtoHeader: true }))
+
+if(app.get('env') === 'production'){
+  var enforce = require('express-sslify');
+  app.use(enforce.HTTPS())
+  // app.use(enforce.HTTPS({ trustProtoHeader: true }))
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'client', 'views'));
