@@ -24,6 +24,20 @@ router.get('/',function(req, res, next) {
     })
 })
 
+router.get('/total',function(req, res, next) {
+
+
+	var sql = []
+	sql.push('SELECT(SELECT SUM(donations.amount) FROM donations) as progress, (SELECT SUM(targets.amount) FROM targets) as target');
+	db.one(sql.join(' '))
+    .then(function(data){
+    	res.json(data)
+    })
+    .catch(function(error){
+    	next(error)
+    })
+})
+
 router.get('/:slug',function(req, res, next) {
 
 	var sql = []
