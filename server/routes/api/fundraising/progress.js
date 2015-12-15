@@ -17,7 +17,7 @@ router.get('/',function(req, res, next) {
 
 	db.any(sql.join(' '))
     .then(function(data){
-    	res.json(data)
+    	res.json(data[])
     })
     .catch(function(error){
     	next(error)
@@ -36,7 +36,7 @@ router.get('/:slug',function(req, res, next) {
 	sql.push('ORDER BY organisations.precedence')
 
 
-	db.any(sql.join(' '))
+	db.one(sql.join(' '))
     .then(function(data){
     	res.json(data)
     })
