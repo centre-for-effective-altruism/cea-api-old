@@ -30,6 +30,7 @@ var whitelist = [
   'https://admin.centreforeffectivealtruism.org',
   'https://server.centreforeffectivealtruism.org',
   'https://www.givingwhatwecan.org',
+  'https://www.centreforeffectivealtruism.org',
   'http://localhost:4000'
 ];
 var corsOptions = {
