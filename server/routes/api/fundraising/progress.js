@@ -17,7 +17,7 @@ router.get('/',function(req, res, next) {
 
 	db.any(sql.join(' '))
     .then(function(data){
-    	res.json(data[])
+    	res.json(data)
     })
     .catch(function(error){
     	next(error)
