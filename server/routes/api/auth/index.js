@@ -2,12 +2,12 @@ var express = require('express');
 var router = express.Router();
 
 
-router.use('/login', function(res,req){
-	res.send('Logging in')
+router.post('/login', function(req,res,next){
+	res.json({message:'Logging in',email:req.body.email})
 });
 
-router.use('/logout', function(res,req){
-	res.send('Logging out')
+router.get('/logout', function(req,res,next){
+	res.json('Logging out')
 });
 
 
