@@ -15,10 +15,12 @@
     "cors": "^2.7.1",
     "debug": "~2.2.0",
     "dotenv": "^1.2.0",
+    "emailjs": "^1.0.1",
     "express": "~4.13.1",
     "express-sslify": "^1.0.1",
     "moment": "^2.10.6",
     "morgan": "~1.6.1",
+    "passwordless-postgrestore": "centre-for-effective-altruism/passwordless-postgrestore",
     "pg": "^4.4.3",
     "pg-promise": "^2.7.2",
     "pg-query": "^0.11.0"
