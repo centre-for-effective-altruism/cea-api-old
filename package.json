@@ -20,6 +20,7 @@
     "express-sslify": "^1.0.1",
     "moment": "^2.10.6",
     "morgan": "~1.6.1",
+    "passwordless": "^1.1.0",
     "passwordless-postgrestore": "centre-for-effective-altruism/passwordless-postgrestore",
     "pg": "^4.4.3",
     "pg-promise": "^2.7.2",
